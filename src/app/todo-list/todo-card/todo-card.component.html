@@ -1,0 +1,28 @@
+<div class="row mt-5">
+   <div class="col-md-6 offset-md-3">
+      <div class="input-group mb-3">
+         <input type="text" class="form-control" placeholder="Add Todo List" aria-label="add todo list" aria-describedby="button-addon" #item>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="onAdd(item)">
+         <i class="col-md-2 bi bi-plus-circle"></i>
+         </button>
+      </div>
+   </div>
+</div>
+
+
+<div class="row mt-5">
+    <div class="col-md-6 offset-md-3">  
+        <div class="mb-3" *ngFor="let x of todoListArray; let i = index">           
+        <div class="card-color" [id]="i"> 
+
+         <div class="alert">  
+            <input class="form-check-input cursor-pointer" type="checkbox" [(ngModel)]="x.isChecked" (change)="onTodoItemClick(x.$key, x.isChecked)">
+           <span class="title-margin">{{x.title}} </span> 
+            <span class="text-danger float-right cursor-pointer ">
+                <i class="bi bi-trash" (click)="onDelete(x.$key)"></i>
+            </span> 
+        </div> 
+        </div>            
+        </div>
+    </div>
+</div>

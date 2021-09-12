@@ -1,0 +1,25 @@
+
+
+<a data-toggle="collapse" [attr.data-target]="'#'+index+'color'" aria-expanded="false" aria-controls="index+'color'">
+    <div class="circle" [ngStyle]="{background: colorSelection}"></div>
+</a>
+<div class="collapse" [id]="index+'color'">
+    <div class="card card-body dropdown-menu">
+        <div *ngFor="let color of colors; let i = index" class="cursor-pointer" name="colorSelection"
+            class="circle" [ngStyle]="{background : colors[i].value}" (click)="onColorSelection($event)" >
+        </div>
+    </div>
+</div>
+
+
+<button class="circle" type="button" data-bs-toggle="collapse" [attr.data-target]="'#'+index" aria-expanded="false">
+</button>
+
+<div class="collapse" [id]="index">
+  <div class="card dropdown-menu">
+    <div *ngFor="let color of colors; let i = index" class="cursor-pointer" name="colorSelection"
+            class="circle" [ngStyle]="{background : colors[i].value}" (click)="onColorSelection($event)" >
+    </div>
+  </div>
+</div>
+
